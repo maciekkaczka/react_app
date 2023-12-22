@@ -4,6 +4,7 @@ import Artist from "./Artist.js"
 import 'bootstrap/dist/css/bootstrap.css';
 import NavBar from './navbar';
 import Insert from './Insert.js';
+import List from './List.js';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="artist/*" element={<Artist />}/>
           <Route path="insert" element={<Insert />}/>
+          <Route path="list" element={<List />}/>
         </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,8 @@
-.bigblue {
-    color: DodgerBlue;
-    padding: 40px;
-    font-family: Arial;
-    text-align: center;
-  }
+.painting-card {
+  margin-bottom: 20px;
+}
+
+.painting-card img {
+  height: 300px;
+  object-fit: cover;
+}

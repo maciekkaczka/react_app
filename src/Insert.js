@@ -1,10 +1,10 @@
 import React, {useEffect, useState, useRef, useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from 'axios';
 
 function Insert(){
     const info = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
-    const uri  = "https://cors-anywhere.herokuapp.com/http://localhost:8080/insert";
+
+    const uri = "http://localhost:8080/insert";
 
     const handle = useCallback(() => {
         alert("Please fill all fields.");
@@ -40,14 +40,39 @@ function Insert(){
 
     async function sendData() {
         if(info.every((item) => item.current.value != "")){
-            useEffect(() => {
-                axios.post(uri, "dupa");
-            })
-                
-        }
-        else{
-            handle();
-        }
+            try {
+                const response = await fetch(uri, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "artist": info[0].current.value,
+                        "painting": info[1].current.value,
+                        "year": info[2].current.value,
+                        "place": info[3].current.value,
+                        "photo": info[4].current.value
+                    }),
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    }
+                })
+                console.log(JSON.stringify({
+                    "artist": info[0].current.value,
+                    "painting": info[1].current.value,
+                    "year": info[2].current.value,
+                    "place": info[3].current.value,
+                    "photo": info[4].current.value
+                }))
+                if(!response.ok){
+                    console.log("dupa")
+                }
+            } catch (error) {
+                // an error occured
+            }
+    }
+    else{
+       handle();
+    }   
+        
 }
 }
 
