@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './List.css'
 
@@ -21,20 +21,20 @@ function List() {
 
     return (
         <>
-        <body>
-            <div class="container mt-5">
-                <h2 class="mb-4">Artists:</h2>
-                {artists && artists.length > 0 && (
-                    <ul class="list-group">
-                        {artists.map((artist) => (
+            <body>
+                <div class="container mt-5">
+                    <h2 class="mb-4">Artists:</h2>
+                    {artists && artists.length > 0 && (
+                        <ul class="list-group">
+                            {artists.map((artist) => (
                                 <a href={uriArtist + artist.name} class="list-group-item text-decoration-none">{artist.name}</a>
-                            
-                        ))}
-                    </ul>
-                )}
-            </div>
-        </body>
-        </>  
+
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            </body>
+        </>
     )
 }
 

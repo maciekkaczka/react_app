@@ -9,12 +9,12 @@ import List from './List.js';
 export default function App() {
   return (
     <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path="artist/*" element={<Artist />}/>
-          <Route path="insert" element={<Insert />}/>
-          <Route path="list" element={<List />}/>
-        </Routes>
+      <NavBar />
+      <Routes>
+        <Route path="artist/*" element={<Artist />} />
+        <Route path="insert" element={<Insert />} />
+        <Route path="list" element={<List />} />
+      </Routes>
     </BrowserRouter>
   );
 }
