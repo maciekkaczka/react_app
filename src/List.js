@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
+import './List.css'
 
 function List() {
-    const url = window.location.href.split('/');
-    const author = url.pop();
+    const uriArtist = "http://localhost:3000/artist/";
     const uri = "http://localhost:8080/getArtists";
 
     let [artists, setArtists] = useState([]);
@@ -23,13 +23,14 @@ function List() {
         <>
         <body>
             <div class="container mt-5">
-                <h4>Artists:</h4>
+                <h2 class="mb-4">Artists:</h2>
                 {artists && artists.length > 0 && (
-                    <div>
+                    <ul class="list-group">
                         {artists.map((artist) => (
-                            <h5>{artist.name}</h5>
+                                <a href={uriArtist + artist.name} class="list-group-item text-decoration-none">{artist.name}</a>
+                            
                         ))}
-                    </div>
+                    </ul>
                 )}
             </div>
         </body>

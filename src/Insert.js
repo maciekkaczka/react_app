@@ -55,15 +55,11 @@ function Insert(){
                         "Content-Type": "application/json"
                     }
                 })
-                console.log(JSON.stringify({
-                    "artist": info[0].current.value,
-                    "painting": info[1].current.value,
-                    "year": info[2].current.value,
-                    "place": info[3].current.value,
-                    "photo": info[4].current.value
-                }))
                 if(!response.ok){
-                    console.log("dupa")
+                    alert("Something went wrong");
+                }
+                else{
+                    alert("Saved")
                 }
             } catch (error) {
                 // an error occured
