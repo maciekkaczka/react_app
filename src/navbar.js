@@ -18,9 +18,6 @@ function NavBar() {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/insert">Insert</a>
                         </li>
                         <li class="nav-item">
@@ -38,7 +35,7 @@ function NavBar() {
     )
 
     function goToPage() {
-        document.location.href = "http://localhost:3000/artist/" + message.current.value.replace(" ", "-");
+        document.location.href = "http://localhost:3000/artist/" + message.current.value;
     }
 }
 
