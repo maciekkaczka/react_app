@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './Artist.css';
+import '../styles/Artist.css';
 
 function Artist() {
   const url = window.location.href.split('/');
@@ -69,9 +69,6 @@ function Artist() {
       })
       if (!response.ok) {
         alert("Something went wrong");
-      }
-      else {
-        alert("Deleted")
       }
       closeDeleteModal();
       window.location.reload(false);

@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { useRef } from 'react';
-import tyler from './favicon.png'
-import './navbar.css'
+import '../styles/navbar.css'
 
 
 

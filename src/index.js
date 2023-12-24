@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Artist from "./Artist.js"
+import Artist from "./pages/Artist.js"
 import 'bootstrap/dist/css/bootstrap.css';
-import NavBar from './navbar';
-import Insert from './Insert.js';
-import List from './List.js';
+import NavBar from './pages/navbar.js';
+import Insert from './pages/Insert.js';
+import List from './pages/List.js';
 
 export default function App() {
   return (

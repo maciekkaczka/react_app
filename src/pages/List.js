@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import './List.css'
+import '../styles/List.css'
 
 function List() {
     const uriArtist = "http://localhost:3000/artist/";
