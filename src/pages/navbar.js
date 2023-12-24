@@ -1,11 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../styles/navbar.css'
 
 
 
 function NavBar() {
     const message = useRef(null);
+
+    const uri = "http://localhost:8080/getArtists";
+
+    let [artists, setArtists] = useState([]);
+
+    let getData = async () => {
+        fetch(uri)
+            .then(response => response.json())
+            .then(result => setArtists(result))
+            .catch(error => console.error('Error fetching data:', error))
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const suggestions = artists.map(item => item.name);
 
     return (
         <body>
@@ -24,14 +41,32 @@ function NavBar() {
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input ref={message} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-primary" type="button" onClick={goToPage}>Search</button>
+                        <input
+                            ref={message}
+                            class="form-control me-2"
+                            id="searchBox"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                            list="suggestionsList"
+                        />
+                        <datalist id="suggestionsList">
+                            {suggestions.map((suggestion, index) => (
+                                <option key={index} value={suggestion} />
+                            ))}
+                        </datalist>
+                        <button
+                            class="btn btn-outline-primary"
+                            type="button"
+                            onClick={goToPage}
+                        >
+                            Search
+                        </button>
                     </form>
                 </div>
-
             </nav>
         </body>
-    )
+    );
 
     function goToPage() {
         document.location.href = "http://localhost:3000/artist/" + message.current.value;
